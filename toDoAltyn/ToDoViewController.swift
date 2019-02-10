@@ -10,14 +10,14 @@ import UIKit
 
 class ToDoViewController: UITableViewController {
     
-    let defaults = UserDefaults.standard
-    
     var itemArray = ["Сделай это","Потом сделай это","Потом сделай то"]
+    
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let items = defaults.array(forKey: "ToDoItemCell") as? [String] {
+        if let items = defaults.array(forKey: "TodoListArray") as? [String] {
             itemArray = items
         }
 
@@ -62,7 +62,7 @@ class ToDoViewController: UITableViewController {
             
             self.tableView.reloadData()
             
-            self.defaults.set(self.itemArray, forKey: "ToDoListArray")
+            self.defaults.set(self.itemArray, forKey: "TodoListArray")
         }
         
         alert.addTextField { (alertTextField) in
